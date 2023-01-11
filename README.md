@@ -68,7 +68,7 @@ var permissions = arrayOf(
         Manifest.permission.WRITE_EXTERNAL_STORAGE,
     )
 
-PermissionAssist(this@MainActivity).permissionDialogTitle("Application Permissions")
+permissionAssist.permissionDialogTitle("Application Permissions")
                     .permissionDialogDescription("Please grant permissions for the app to work stable.")
                     .permissionDialogAllowText("Allow")
                     .permissionDialogNegativeText("Cancel")
