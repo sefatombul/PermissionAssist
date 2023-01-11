@@ -7,20 +7,23 @@ PermissionAssist is a helper for Android that will make your permission processe
 ## Installation
 
 ### Add the JitPack repository to your build file
-Add it in your root build.gradle at the end of repositories:
+In settings.gradle, add maven { url 'https://jitpack.io' }
 
 ```groovy
-allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+dependencyResolutionManagement {
+    ...
+    repositories {
+        google()
+        mavenCentral()
+
+        maven { url 'https://jitpack.io' }
+    }
+}
 ```
 ### Add the dependency
 ```groovy
 dependencies {
-       implementation 'com.github.sefatombul:PermissionAssist:1.0.0'
+       implementation 'com.github.sefatombul:PermissionAssist:latest'
 	}
 ```
 ## Usage
@@ -39,6 +42,20 @@ Using PermissionAssist to request Android runtime permissions is simple. The per
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
+```
+PermissionAssist object must be created in OnCreate method. Otherwise, an error may be received regarding LifecycleOwners.
+```kotlin
+lateinit var permissionAssist:PermissionAssist
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    ...
+    permissionAssist = PermissionAssist(this@MainActivity)
+}
+
+```
+LifecycleOwners Error 
+```bash
+java.lang.RuntimeException: Unable to resume activity {....MainActivity}: java.lang.IllegalStateException: LifecycleOwner ....MainActivity@bf670cc is attempting to register while current state is STARTED. LifecycleOwners must call register before they are STARTED.
 ```
 Then you can use below codes to request.
 ```kotlin
