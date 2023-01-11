@@ -7,15 +7,18 @@ PermissionAssist is a helper for Android that will make your permission processe
 ## Installation
 
 ### Add the JitPack repository to your build file
-Add it in your root build.gradle at the end of repositories:
+In settings.gradle, add maven { url 'https://jitpack.io' }
 
 ```groovy
-allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+dependencyResolutionManagement {
+    ...
+    repositories {
+        google()
+        mavenCentral()
+
+        maven { url 'https://jitpack.io' }
+    }
+}
 ```
 ### Add the dependency
 ```groovy
