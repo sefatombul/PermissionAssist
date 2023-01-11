@@ -76,7 +76,13 @@ permissionAssist.permissionDialogTitle("Application Permissions")
                     .setNegativeButtonVisible(true)
                     .cancelable(false)
                     .requestPermissions(permissions) { allGranted, grantedList, deniedList ->
-                        /// todo : 
+                        println("allGranted : $allGranted")
+                        grantedList.forEach {
+                            println("grantedList : $it")
+                        }
+                        deniedList.forEach {
+                            println("deniedList : $it")
+                        }
                     }
 
 
