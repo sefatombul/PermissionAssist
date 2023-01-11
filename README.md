@@ -23,7 +23,7 @@ dependencyResolutionManagement {
 ### Add the dependency
 ```groovy
 dependencies {
-       implementation 'com.github.sefatombul:PermissionAssist:1.0.0'
+       implementation 'com.github.sefatombul:PermissionAssist:latest'
 	}
 ```
 ## Usage
